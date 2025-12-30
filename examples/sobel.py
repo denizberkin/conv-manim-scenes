@@ -8,7 +8,7 @@ def apply_sobel(image_path):
     img = Image.open(image_path).convert("L")
     img_array = np.array(img)
 
-    # sobel filter kernel
+    # sobel filter vertical
     #   [[-1, 0, 1],
     #   [-2, 0, 2],
     #   [-1, 0, 1]]
@@ -18,10 +18,10 @@ def apply_sobel(image_path):
     grad_v = signal.convolve2d(img_array, kernel_v, mode="same")
     grad_h = signal.convolve2d(img_array, kernel_h, mode="same")
 
-    combined = np.sqrt(grad_v**2 + grad_h**2)
+    combined = np.sqrt(grad_v**2 + grad_h**2)  # magnitude
 
     # plots
-    fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+    _, axes = plt.subplots(2, 2, figsize=(12, 10))
 
     axes[0, 0].imshow(img_array, cmap="gray")
     axes[0, 0].set_title("1. Original Image")
