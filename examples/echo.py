@@ -56,4 +56,5 @@ def plot_echo_effect(original, echoed, sample_rate):
     plt.show()
 
 
-apply_echo_convolution("data/wilhelm.wav")
+if __name__ == "__main__":
+    apply_echo_convolution("data/wilhelm.wav")
