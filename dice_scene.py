@@ -1,4 +1,25 @@
-from manim import *
+from manim import (
+    BLACK,
+    BLUE,
+    DOWN,
+    LEFT,
+    RED,
+    RIGHT,
+    UP,
+    FadeOut,
+    MathTex,
+    Scene,
+    Square,
+    Text,
+    Transform,
+    VGroup,
+    Write,
+    config,
+)
+
+config.background_color = "#F5F5DC"  # beige
+Text.set_default(color=BLACK)
+MathTex.set_default(color=BLACK)
 
 
 class DiceScene(Scene):
@@ -62,9 +83,6 @@ class DiceScene(Scene):
                 animations.append(dice_b.animate.shift(RIGHT * step_width))
 
             self.play(*animations, run_time=0.5)
-            # self.wait(0.5)
-            # res_box.move_to(DOWN * 2 + LEFT * 2.7 + RIGHT * (n - 2) * step_width)
-            # self.play(dice_b.animate.shift(RIGHT * step_width), run_time=0.6)
         self.wait(2)
 
         # reset pos
